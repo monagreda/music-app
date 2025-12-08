@@ -1,7 +1,10 @@
 import { Pause, Play } from "lucide-react"
 import SongList from "../songs/SongList"
+import { usePlayer } from "../../context/PlayerContext.jsx"
 
-export default function ControlList({ togglePlay, isPlaying, playlist, onSelectSong }) {
+export default function ControlList({ playlist }) {
+     const {onSelectSong, togglePlay, isPlaying} = usePlayer();
+     
     return (
         <div className="bg-gray-900">
             {/* bton */}

@@ -2,8 +2,19 @@ import ActualSong from "./components/Bar/ActualSong"
 import Controls from "./components/Bar/Controls"
 import ProgressBar from "./components/Bar/ProgressBar"
 import Volume from "./components/Bar/Volume"
+import {usePlayer} from"./context/PlayerContext.jsx"
 
-export default function PlayerBar({ isPlaying, togglePlay, currentSong, handlePrevSong, handleNextSong }) {
+export default function PlayerBar() {
+
+    // 2. Obtener la lógica y el estado directamente
+    const { 
+        isPlaying, 
+        togglePlay, 
+        currentSong, 
+        handlePrevSong, 
+        handleNextSong 
+    } = usePlayer();
+
     return (
         <div className="fixed bottom-0 left-0 right-0 h-24 bg-gray-950 border-t border-gray-800 flex items-center justify-between px-6 shadow-2xl z-30">
             <div className="w-28 flex-shrink-0">
@@ -11,12 +22,7 @@ export default function PlayerBar({ isPlaying, togglePlay, currentSong, handlePr
             </div>
 
             <div className="flex flex-col items-center justify-center flex-1">
-                <Controls
-                    isPlaying={isPlaying}
-                    togglePlay={togglePlay}
-                    handleNextSong={handleNextSong}
-                    handlePrevSong={handlePrevSong}
-                />
+                <Controls />
                 <ProgressBar currentSong={currentSong} />
             </div>
 

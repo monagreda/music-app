@@ -1,7 +1,9 @@
 import SongList from "./components/songs/SongList"
+import { usePlayer } from "./context/PlayerContext.jsx"
 
+export default function HomeView({ songs }) {
+    const { onSelectSong } = usePlayer();
 
-export default function HomeView({ songs, onSelectSong }) {
     return (
         <>
             {/* Barra Superior de Contenido (Placeholder) */}

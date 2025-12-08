@@ -6,60 +6,20 @@ import PlaylistDetail from './PlaylistDetail';
 import PlayerBar from './PlayerBar';
 import LibraryView from './LibraryView';
 import { useState } from 'react';
-
-const mockSongs = [
-  { id: 101, title: 'Running Up That Hill', artist: 'Kate Bush', album: 'Hounds of Love', duration: '5:03', isLiked: true },
-  { id: 102, title: 'Bohemian Rhapsody', artist: 'Queen', album: 'A Night at the Opera', duration: '5:55', isLiked: false },
-  { id: 103, title: 'As It Was', artist: 'Harry Styles', album: 'Harrys House', duration: '2:47', isLiked: true },
-  { id: 104, title: 'Blinding Lights', artist: 'The Weeknd', album: 'After Hours', duration: '3:20', isLiked: false },
-  { id: 105, title: 'Shape of You', artist: 'Ed Sheeran', album: '÷', duration: '3:53', isLiked: false },
-];
-
-const mockPlaylists = [
-  { id: 1, title: 'Pop Chill', image: 'https://placehold.co/50x50/1e293b/ffffff?text=PCH', description: 'Música relajante para estudiar o trabajar.', color: 'bg-indigo-700/80', tracks: mockSongs.slice(0, 3) },
-  { id: 2, title: 'Lo-Fi Beats', image: 'https://placehold.co/50x50/374151/ffffff?text=LOFI', description: 'Ritmos tranquilos para la concentración.', color: 'bg-amber-700/80', tracks: mockSongs.slice(1, 4) },
-  { id: 3, title: 'Rock Essentials', image: 'https://placehold.co/50x50/4b5563/ffffff?text=ROCK', description: 'Los himnos más grandes del rock clásico.', color: 'bg-red-700/80', tracks: mockSongs },
-];
+import {mockSongs, mockPlaylists} from "./data/mockData.jsx";
+import { PlayerProvider } from './context/PlayerContext.jsx';
 
 
 export default function App() {
   // Estados de la app
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState(mockSongs[0])
   const [currentView, setCurrentView] = useState('home');
-
-
-  //logica
-  const togglePlay = () => {
-    setIsPlaying(!isPlaying)
-  }
-
-  const handleSongSelect = (song) => {
-    setCurrentSong(song);
-    setIsPlaying(true);
-    console.log(`Reproduciendo: ${song.title}`);
-  }
-
-  const handleNextSong = () => {
-    const currentIndex = mockSongs.findIndex(s => s.id === currentSong.id)
-    const nextIndex = (currentIndex + 1) % mockSongs.length;
-    setCurrentSong(mockSongs[nextIndex]);
-    setIsPlaying(true);
-  }
-
-  const handlePrevSong = () => {
-    const currentIndex = mockSongs.findIndex(s => s.id === currentSong.id)
-    const prevIndex = (currentIndex - 1 + mockSongs.length) % mockSongs.length;
-    setCurrentSong(mockSongs[prevIndex]);
-    setIsPlaying(true);
-  }
 
   // render contenido central
   const renderContent = () => {
     if (currentView === 'home') {
       return (
         <div className='flex-1 overflow-y-auto'>
-          <HomeView songs={mockSongs} onSelectSong={handleSongSelect} />
+          <HomeView songs={mockSongs} />
         </div>
       )
     }
@@ -68,9 +28,6 @@ export default function App() {
       return (
         <PlaylistDetail
           playlist={playlist}
-          onSelectSong={handleSongSelect}
-          togglePlay={togglePlay}
-          isPlaying={isPlaying}
         />
       )
     }
@@ -99,6 +56,7 @@ export default function App() {
   };
 
   return (
+    <PlayerProvider>
     <div className='flex h-screen bg-gray-900 text-white'>
 
       {/* Contenedor GRID (SideBar + Contenido Principal) */}
@@ -114,17 +72,13 @@ export default function App() {
 
       {/* Player (Reproductor) - Pasa la lógica de reproducción */}
       <PlayerBar
-        isPlaying={isPlaying}
-        togglePlay={togglePlay}
-        currentSong={currentSong}
-        handleNextSong={handleNextSong}
-        handlePrevSong={handlePrevSong}
         className="fixed bottom-0 left-0 right-0 h-[90px] bg-gray-800 border-t border-gray-700 z-20"
       />
 
       {/* mobile nav  */}
       <MobileNav currentView={currentView} setView={setView} />
     </div>
+    </PlayerProvider>
   )
 
 }

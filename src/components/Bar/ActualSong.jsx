@@ -1,4 +1,9 @@
-export default function ActualSong({ currentSong }) {
+import { usePlayer } from "../../context/PlayerContext";
+
+
+export default function ActualSong() {
+    const {currentSong} = usePlayer();
+
     const albumArtSrc = currentSong?.albumArt || 'https://placehold.co/60x60/374151/ffffff?text=🎶';
     const songTitle = currentSong?.title || 'Título Desconocido';
     const songArtist = currentSong?.artist || 'Artista';

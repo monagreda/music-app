@@ -1,5 +1,5 @@
 import SongList from "./components/songs/SongList"
-import { usePlayer } from "./context/PlayerContext.jsx"
+import { usePlayer } from "./context/PlayerContext.jsx";
 
 export default function HomeView({ songs }) {
     const { onSelectSong } = usePlayer();

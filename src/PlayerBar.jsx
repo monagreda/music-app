@@ -10,7 +10,6 @@ export default function PlayerBar() {
     const { 
         isPlaying, 
         togglePlay, 
-        currentSong, 
         handlePrevSong, 
         handleNextSong 
     } = usePlayer();
@@ -18,12 +17,12 @@ export default function PlayerBar() {
     return (
         <div className="fixed bottom-0 left-0 right-0 h-24 bg-gray-950 border-t border-gray-800 flex items-center justify-between px-6 shadow-2xl z-30">
             <div className="w-28 flex-shrink-0">
-                <ActualSong currentSong={currentSong} />
+                <ActualSong/>
             </div>
 
             <div className="flex flex-col items-center justify-center flex-1">
                 <Controls />
-                <ProgressBar currentSong={currentSong} />
+                <ProgressBar/>
             </div>
 
             <div className="hidden md:block w-28 flex-shrink-0">

@@ -1,5 +1,5 @@
 import Header from "./components/PlaylistDetail/Header"
-import ControlList from "./components/PLaylistDetail/ControlList"
+import ControlList from "./components/PlaylistDetail/ControlList"
 import { usePlayer } from "./context/PlayerContext"
 
 export default function PlaylistDetail({ playlist }) {

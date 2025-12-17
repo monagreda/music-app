@@ -1,4 +1,4 @@
-import Header from "./components/PLaylistDetail/header"
+import Header from "./components/PlaylistDetail/Header"
 import ControlList from "./components/PLaylistDetail/ControlList"
 import { usePlayer } from "./context/PlayerContext"
 

@@ -1,5 +1,5 @@
 import { Pause, Play } from "lucide-react"
-import SongList from "../songs/SongList"
+import SongList from "../songs/SongList.jsx"
 import { usePlayer } from "../../context/PlayerContext.jsx"
 
 export default function ControlList({ playlist }) {

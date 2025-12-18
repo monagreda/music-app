@@ -22,7 +22,7 @@ export default function PlayerBar() {
 
             <div className="flex flex-col items-center justify-center flex-1 px-2 md: px-4 min-w-0">
                 <Controls />
-                <div className="hidden xs:block w-full max-w-md md:max-w-2xl mt-1">
+                <div className="hidden sm:block w-full max-w-md md:max-w-2xl mt-1">
                     <ProgressBar/>
                 </div>
                 

@@ -7,14 +7,15 @@ export default function PlaylistDetail({ playlist }) {
 
     if (!playlist) return <div className="texxt-white p-6">Playlist no encontrada. </div>
     return (
-        <div className="flex-1 overflow-y-auto bg-gray-900">
+        <div className="flex-1 min-h-screen bg-gray-900">
             <Header playlist={playlist} />
+            <div>
             <ControlList 
             isPlaying={isPlaying} 
             playlist={playlist} 
             onSelectSong={onSelectSong} 
             togglePlay={togglePlay} />
-
+            </div>
         </div>
     )
 }

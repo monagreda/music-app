@@ -15,20 +15,23 @@ export default function PlayerBar() {
     } = usePlayer();
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 h-24 bg-gray-950 border-t border-gray-800 flex items-center justify-between px-6 shadow-2xl z-30">
-            <div className="w-28 flex-shrink-0">
+        <div className="fixed bottom-16 md:bottom-0 left-0 right-0 h-20 md:h-24 bg-gray-950 border-t border-gray-800 flex items-center justify-between px-6 shadow-2xl z-30">
+            <div className="w-1/3 md:w-1/4 flex-shrink-0 min-w-0">
                 <ActualSong/>
             </div>
 
-            <div className="flex flex-col items-center justify-center flex-1">
+            <div className="flex flex-col items-center justify-center flex-1 px-2 md: px-4 min-w-0">
                 <Controls />
-                <ProgressBar/>
+                <div className="hidden xs:block w-full max-w-md md:max-w-2xl mt-1">
+                    <ProgressBar/>
+                </div>
+                
             </div>
 
-            <div className="hidden md:block w-28 flex-shrink-0">
+            <div className="hidden md:flex items-center justify-end w-1/4 flex-shrink-0">
                 <Volume />
             </div>
-            <div className="block md:hidden w-28 flex-shrink-0">
+            <div className="md:hidden w-8 xs:w-12 flex-shrink-0">
                 {/* Este div está vacío, pero ocupa el 25% del ancho para empujar los controles al centro */}
             </div>
         </div>

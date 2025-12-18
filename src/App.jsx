@@ -63,8 +63,9 @@ export default function App() {
       <div className=' grid grid-cols-1 md:grid-cols-[auto_1fr] h-[calc(100vh-160px)] md:h-[calc(100vh-96px)]'>
         <SideBar currentView={currentView} setView={setView} playlists={mockPlaylists} />
         {/* Contenido Principal - Renderiza la vista actual */}
-        {renderContent()}
-
+        <main className='flex-1 overflow-y-auto pb-40 md:pb-28'>
+          {renderContent()}
+        </main>
       </div>
 
 
@@ -72,7 +73,7 @@ export default function App() {
 
       {/* Player (Reproductor) - Pasa la lógica de reproducción */}
       <PlayerBar
-        className="fixed bottom-0 left-0 right-0 h-[90px] bg-gray-800 border-t border-gray-700 z-20"
+        className="fixed bottom-16 md:bottom-0 left-0 right-0 h-20 md:h-24 bg-gray-800 border-t border-gray-700 z-20"
       />
 
       {/* mobile nav  */}

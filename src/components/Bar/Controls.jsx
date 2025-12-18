@@ -27,10 +27,10 @@ export default function Controls() {
         : 'text-gray-400 hover:text-white';
 
     return (
-        <div className="flex items-center space-x-6 mb-2">
+        <div className="flex items-center space-x-4 md:space-x-6 mb-1 md:mb-2">
             <Shuffle 
             size={20}
-           className={`cursor-pointer ${shuffleColor}`}
+           className={`cursor-pointer hidden md:block ${shuffleColor}`}
             onClick={toggleShuffle}
             />
             <SkipBack
@@ -38,8 +38,12 @@ export default function Controls() {
                 className="text-gray-400 hover:text-white cursor-pointer"
                 onClick={handlePrevSong}
             />
-            <button onClick={togglePlay} className="p-3 bg-white text-black rounded-full hover:scale-110 transition-transform shadow-lg">
-                {isPlaying ? <Pause size={20} fill="black" /> : <Play size={20} fill="black" />}
+            <button 
+            onClick={togglePlay} 
+            className="p-2 md:p-3 bg-white text-black rounded-full hover:scale-110 transition-transform shadow-lg flex-shrink-0">
+                {isPlaying 
+                ? <Pause size={20} md:size={24} fill="black" /> 
+                : <Play size={20} md:size={24} fill="black"  className="ml-0.5"/>}
             </button>
             <SkipForward
                 size={24}
@@ -48,7 +52,7 @@ export default function Controls() {
             />
             <LoopIcon
             size={20} 
-            className={`cursor-pointer transition-colors ${loopColor}`}
+            className={`cursor-pointer transition-colors hidden md:block ${loopColor}`}
             onClick={toggleLoop}
             />
         </div>

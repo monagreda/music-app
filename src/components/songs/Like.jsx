@@ -4,7 +4,7 @@ export default function Like({ song }) {
 
     return (
         // Usamos flex para centrar el corazón en su pequeña columna
-        <div className="flex justify-center items-center h-full">
+        <div className="hidden md:block flex justify-center items-center h-full">
             {song.isLiked ? (
                 // Corazón relleno (Like activo)
                 <Heart size={18} className="text-green-500 hover:text-white cursor-pointer transition-colors" fill="rgb(34 197 94)" />

@@ -13,9 +13,9 @@ export default function NameSong({ song, index, onSelectSong }) {
                 <span className="text-gray-400 text-sm truncate text-left">{song.artist}</span>
             </div>
 
-            <div className="text-gray-400 truncate text-left">{song.album}</div>
-            <div className="text-gray-400 truncate text-left">{song.artist}</div>
-            <div className="text-right text-gray-400">{song.duration}</div>
+            <div className="hidden md:block text-gray-400 truncate text-left">{song.album}</div>
+            <div className="hidden md:block text-gray-400 truncate text-left">{song.artist}</div>
+            <div className="hidden md:block text-right text-gray-400">{song.duration}</div>
             <Like song={song} />
         </div>
     )

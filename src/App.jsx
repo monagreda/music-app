@@ -4,15 +4,19 @@ import MobileNav from './MobileNav';
 import HomeView from './HomeView';
 import PlaylistDetail from './PlaylistDetail';
 import PlayerBar from './PlayerBar';
+import MobileMiniPlayer from './MobileMiniPlayer.jsx';
 import LibraryView from './LibraryView';
 import { useState } from 'react';
 import {mockSongs, mockPlaylists} from "./data/mockData.jsx";
 import { PlayerProvider } from './context/PlayerContext.jsx';
+import SearchView from './SearchView.jsx';
+
 
 
 export default function App() {
   // Estados de la app
   const [currentView, setCurrentView] = useState('home');
+  const [searchQuery, setSearchQuery] = useState("");
 
   // render contenido central
   const renderContent = () => {
@@ -33,10 +37,11 @@ export default function App() {
     }
     if (currentView === 'search') {
       return (
-        <div className="flex-1 p-6 overflow-y-auto bg-gray-900 text-white">
-          <h1 className="text-4xl font-bold mt-20">Vista de Búsqueda</h1>
-          <p className="mt-4 text-gray-400">Aquí se mostrarán los resultados de búsqueda.</p>
-        </div>
+    <SearchView
+      searchQuery={searchQuery}
+      setSearchQuery={setSearchQuery}
+      songs={filteredSongs}
+    />
       );
     }
 
@@ -50,6 +55,13 @@ export default function App() {
 
     return <div className='p-6 text-white'>Vista no encontrada</div>;
   };
+
+    //Filtrar canciones en tiempo real
+  const filteredSongs = mockSongs.filter(song => 
+    song.title.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase()) ||
+    song.artist.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   // funcion vista
   const setView = (view) => {
     setCurrentView(view);
@@ -72,9 +84,15 @@ export default function App() {
 
 
       {/* Player (Reproductor) - Pasa la lógica de reproducción */}
+      <div className='hidden md:block'>
       <PlayerBar
         className="fixed bottom-16 md:bottom-0 left-0 right-0 h-20 md:h-24 bg-gray-800 border-t border-gray-700 z-20"
       />
+      </div>
+
+       {/* reproductor solo visible en mobiles */}
+      <MobileMiniPlayer/>
+
 
       {/* mobile nav  */}
       <MobileNav currentView={currentView} setView={setView} />

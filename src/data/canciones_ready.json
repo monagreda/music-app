@@ -1,0 +1,51 @@
+[
+    {
+        "titulo":"Starboy",
+        "artista":"The Weeknd",
+        "reproducciones":1500,
+        "duracion_min":3.8,
+        "cluster":0
+    },
+    {
+        "titulo":"Blinding Lights",
+        "artista":"The Weeknd",
+        "reproducciones":3200,
+        "duracion_min":3.3,
+        "cluster":0
+    },
+    {
+        "titulo":"Shape of You",
+        "artista":"Ed Sheeran",
+        "reproducciones":4500,
+        "duracion_min":3.9,
+        "cluster":1
+    },
+    {
+        "titulo":"Bohemian Rhapsody",
+        "artista":"Queen",
+        "reproducciones":6000,
+        "duracion_min":5.9,
+        "cluster":1
+    },
+    {
+        "titulo":"Stay",
+        "artista":"Justin Bieber",
+        "reproducciones":2100,
+        "duracion_min":2.3,
+        "cluster":0
+    },
+    {
+        "titulo":"Save Your Tears",
+        "artista":"The Weeknd",
+        "reproducciones":2800,
+        "duracion_min":3.5,
+        "cluster":0
+    },
+    {
+        "titulo":"The Backstage",
+        "artista":"No Refundable",
+        "reproducciones":5500,
+        "duracion_min":3.5,
+        "cluster":1
+    }
+]

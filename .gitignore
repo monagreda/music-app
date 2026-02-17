@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python stuff
+analysis/__pycache__/
+analysis/venv/
+analysis/reports/*.png
+analysis/.env 

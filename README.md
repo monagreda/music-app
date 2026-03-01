@@ -1,8 +1,8 @@
+[![Python Unit Tests](https://github.com/monagreda/music-app/actions/workflows/python-tests.yml/badge.svg)](https://github.com/monagreda/music-app/actions/workflows/python-tests.yml)
+
 # 🎵 Music App - Modern Streaming Interface
 
 A high-performance music streaming web application built with a focus on UI/UX, responsive design, and seamless data handling.
-
-[![Python Unit Tests](https://github.com/monagreda/music-app/actions/workflows/python-tests.yml/badge.svg)](https://github.com/monagreda/music-app/actions/workflows/python-tests.yml)
 
 ### Live Demo
 **[View Live Project](https://music-app-lovat-xi.vercel.app/)**

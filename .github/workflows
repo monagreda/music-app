@@ -1,0 +1,24 @@
+name: Python Unit Tests
+
+on: [push] # Se ejecuta cada vez que subes código
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Una PC virtual con Linux
+
+    steps:
+    - uses: actions/checkout@v3 # Descarga tu código en la PC virtual
+
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy pandas pytest # Las librerías que usa tu K-Means
+
+    - name: Run Tests with Pytest
+      run: |
+        pytest
